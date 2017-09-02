@@ -2,7 +2,9 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
-import tkinter as tk
+import tkinter.scrolledtext as tkst
+import tkinter
+
 
 filename = None
 
@@ -27,8 +29,7 @@ def saveAs():
         showerror(title="Oh No!", message="Unable to save file...")
  
 root = Tk()
-
-root.option_add("*background", "WHITE")
+root.option_add("*background", "BLACK")
        
 def openFile():
     global filename
@@ -38,16 +39,34 @@ def openFile():
     text.delete(0.0, END)
     text.insert(0.0, t)
     file.close()
- 
- 
- 
+
+def cut():
+    root.clipboard_clear()
+    text.clipboard_append(string = text.selection_get())
+    text.delete(index1 = SEL_FIRST,index2 = SEL_LAST)
+
+def copy():
+    root.clipboard_clear()
+    text.clipboard_append(string = text.selection_get())
+
+def paste():
+    text.insert(INSERT , root.clipboard_get())
+
+def delete():
+    text.delete(index1 = SEL_FIRST,index2 = SEL_LAST)
+        
 root.title("TheEdit")
 root.resizable(True,True) 
-text = Text(root, width=400, height=400, fg = 'yellow',font=50,highlightthickness=1 )
+scrollbar = Scrollbar(root)
+scrollbar.pack(side=RIGHT, fill=Y)
+text = Text(root, width=400, height=400, font=("Times New Roman" , 14) , fg = 'yellow',yscrollcommand=scrollbar.set )
+text.pack(side=LEFT, fill=BOTH)
 
+scrollbar.config(command=text.yview)
+
+text.config(insertbackground='white') 
 text.pack()
 
-	
 	
  
 menubar = Menu(root, background='#374140', foreground='white',
@@ -60,10 +79,18 @@ filemenu.add_command(label="Save", command=saveFile)
 filemenu.add_command(label="Save As", command=saveAs)
 filemenu.add_separator()
 filemenu.add_command(label="Quit", command=root.quit)
-
 menubar.add_cascade(label="File", menu=filemenu)
+
+editmenu = Menu(menubar,background='#374140', foreground='white',
+activebackground='#374140', activeforeground='white')
+menubar.add_cascade(label="Edit", menu=editmenu)
+editmenu.add_command(label="Cut", command=cut)
+editmenu.add_command(label="Copy", command=copy)
+editmenu.add_command(label="Paste", command=paste)
+editmenu.add_command(label="Delete", command=delete)
+
+
 	
 root.config(menu=menubar)
-
 
 root.mainloop()
