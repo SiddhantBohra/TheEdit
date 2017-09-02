@@ -41,10 +41,8 @@ def openFile():
  
  
  
-root.title("The Editor")
-root.minsize(width=400, height=400)
-root.maxsize(width=400, height=400)
- 
+root.title("TheEdit")
+root.resizable(True,True) 
 text = Text(root, width=400, height=400)
 
 text.pack()
