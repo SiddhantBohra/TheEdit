@@ -25,11 +25,12 @@ def saveAs():
         f.write(t.rstrip())
     except:
         showerror(title="Oh No!", message="Unable to save file...")
- 
+
+	
 root = Tk()
 
 root.option_add("*background", "BLACK")
-       
+
 def openFile():
     global filename
     file = askopenfile(parent=root,title='Select a File')
@@ -45,8 +46,15 @@ root.title("TheEdit")
 root.resizable(True,True) 
 text = Text(root, width=400, height=400, fg = 'yellow' )
 
+text.config(insertbackground='white')
+
 text.pack()
-	
+
+
+
+
+
+
 	
  
 menubar = Menu(root, background='#374140', foreground='white',
@@ -63,4 +71,4 @@ menubar.add_cascade(label="File", menu=filemenu)
 	
 root.config(menu=menubar)
 
-root.mainloop()
+root.mainloop()	
