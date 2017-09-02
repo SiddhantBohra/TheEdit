@@ -43,7 +43,7 @@ def openFile():
  
 root.title("TheEdit")
 root.resizable(True,True) 
-text = Text(root, width=400, height=400)
+text = Text(root, width=400, height=400, fg = 'yellow' )
 
 text.pack()
 	
@@ -51,7 +51,8 @@ text.pack()
  
 menubar = Menu(root, background='#374140', foreground='white',
 activebackground='#374140', activeforeground='white')
-filemenu = Menu(menubar)
+filemenu = Menu(menubar,background='#374140', foreground='white',
+activebackground='#374140', activeforeground='white')
 filemenu.add_command(label="New", command=newFile)
 filemenu.add_command(label="Open", command=openFile)
 filemenu.add_command(label="Save", command=saveFile)
