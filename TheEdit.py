@@ -2,8 +2,10 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
+import tkinter
+
 filename = None
- 
+
 def newFile():
     global filename
     filename = "Untitled"
@@ -25,6 +27,8 @@ def saveAs():
         showerror(title="Oh No!", message="Unable to save file...")
  
 root = Tk()
+
+root.option_add("*background", "BLACK")
        
 def openFile():
     global filename
@@ -37,13 +41,18 @@ def openFile():
  
  
  
-root.title("MonkeyCode Editor")
-root.resizable(width=True, height=True)
+root.title("The Editor")
+root.minsize(width=400, height=400)
+root.maxsize(width=400, height=400)
  
 text = Text(root, width=400, height=400)
+
 text.pack()
+	
+	
  
-menubar = Menu(root)
+menubar = Menu(root, background='#374140', foreground='white',
+activebackground='#374140', activeforeground='white')
 filemenu = Menu(menubar)
 filemenu.add_command(label="New", command=newFile)
 filemenu.add_command(label="Open", command=openFile)
@@ -52,6 +61,7 @@ filemenu.add_command(label="Save As", command=saveAs)
 filemenu.add_separator()
 filemenu.add_command(label="Quit", command=root.quit)
 menubar.add_cascade(label="File", menu=filemenu)
- 
+	
 root.config(menu=menubar)
+
 root.mainloop()
