@@ -38,8 +38,7 @@ def openFile():
  
  
 root.title("MonkeyCode Editor")
-root.minsize(width=400, height=400)
-root.maxsize(width=400, height=400)
+root.resizable(width=True, height=True)
  
 text = Text(root, width=400, height=400)
 text.pack()
