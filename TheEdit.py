@@ -56,6 +56,7 @@ def delete():
 root.title("TheEdit")
 root.resizable(True,True) 
 text = Text(root, width=400, height=400, font=("Times New Roman" , 14) , fg = 'yellow' )
+text.config(insertbackground='white') 
 text.pack()
 	
 	
