@@ -25,6 +25,7 @@ def saveAs():
         f.write(t.rstrip())
     except:
         showerror(title="Oh No!", message="Unable to save file...")
+
  
 root = Tk()
 
@@ -38,13 +39,14 @@ def openFile():
     text.delete(0.0, END)
     text.insert(0.0, t)
     file.close()
+
+
  
  
  
 root.title("TheEdit")
-root.resizable(True,True) 
-text = Text(root, width=400, height=400, fg = 'yellow' )
-
+root.resizable(True,True)
+text = Text(root, width=400, height=400, font=("Times New Roman" , 14) , fg = 'yellow' )
 text.pack()
 	
 	
@@ -59,8 +61,8 @@ filemenu.add_command(label="Save", command=saveFile)
 filemenu.add_command(label="Save As", command=saveAs)
 filemenu.add_separator()
 filemenu.add_command(label="Quit", command=root.quit)
-menubar.add_cascade(label="File", menu=filemenu)
-	
-root.config(menu=menubar)
+menubar.add_cascade(label="File", menu = filemenu)
 
+
+root.config(menu=menubar)
 root.mainloop()
