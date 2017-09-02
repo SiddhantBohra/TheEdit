@@ -40,10 +40,9 @@ def openFile():
     file.close()
  
  
- 
 root.title("TheEdit")
 root.resizable(True,True) 
-text = Text(root, width=400, height=400, fg = 'yellow' )
+text = Text(root, width=400, height=400, font=("Times New Roman" , 14) , fg = 'yellow' )
 
 text.pack()
 	
