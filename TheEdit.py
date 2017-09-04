@@ -54,6 +54,9 @@ def paste():
 
 def delete():
     text.delete(index1 = SEL_FIRST,index2 = SEL_LAST)
+    
+def select_all():
+    text.tag_add('sel', '1.0', 'end')
         
 root.title("TheEdit")
 root.resizable(True,True) 
@@ -64,7 +67,8 @@ text.pack(side=LEFT, fill=BOTH)
 
 scrollbar.config(command=text.yview)
 
-text.config(insertbackground='white') 
+text.config(insertbackground='white')
+ 
 text.pack()
 
 	
@@ -88,6 +92,7 @@ editmenu.add_command(label="Cut", command=cut)
 editmenu.add_command(label="Copy", command=copy)
 editmenu.add_command(label="Paste", command=paste)
 editmenu.add_command(label="Delete", command=delete)
+editmenu.add_command(label="Select All", command=select_all)
 
 
 	
