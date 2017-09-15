@@ -82,7 +82,7 @@ filemenu.add_command(label="Open", command=openFile)
 filemenu.add_command(label="Save", command=saveFile)
 filemenu.add_command(label="Save As", command=saveAs)
 filemenu.add_separator()
-filemenu.add_command(label="Quit", command=root.quit)
+filemenu.add_command(label="Quit", command=root.destroy)
 menubar.add_cascade(label="File", menu=filemenu)
 
 editmenu = Menu(menubar,background='#374140', foreground='white',
