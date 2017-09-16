@@ -1,2 +1,2 @@
 # TheEdit
-The basic Text Editor made using Tkinter
+:clipboard: The basic Text Editor made using Tkinter
